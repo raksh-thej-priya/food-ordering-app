@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="loginstyles.css">
+    <title>login</title>
+</head>
+<body>
+    <div class="login">
+        <h1>FOOD ORDERING LOGIN</h1>
+        <form>
+            <h3> Username:</h3>
+            <input type="text" placeholder="enter your name" required>
+            <h3> Mail-id:</h3>
+            <input type="email" placeholder="enter your mail-id" required>
+            <h3> Password:</h3>
+            <input type="password" placeholder="enter your password"pattern=".{5,10}" title="Please enter a password with 5-10 characters" required>
+            <br><br>
+            <input type="checkbox">
+            <label for="remember">Remember-me</label><br>
+            <button type="submit">Login</button>
+            <p>Don't have an account ?<a href="#">Register</a></p>
+        </form>
+    </div>
+</body>
+</html>
