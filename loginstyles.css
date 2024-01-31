@@ -5,6 +5,8 @@ body {
     align-items: center;
     justify-content: center;
     margin: 100px;
+    background-image: url('bgreg.jpg');
+    background-size: cover;
 }
 
 .login {
@@ -14,7 +16,10 @@ body {
     box-shadow: 0 0 10px rgba(0, 0, 0, 0.2);
     text-align: center;  
 }
-
+p{
+    text-align: left;
+    font-weight: 100px;
+}
 h1 {
     color: #333;
 }
@@ -24,6 +29,7 @@ input{
     padding: 10px;
     width: 100%;
     box-sizing: border-box;
+    border-radius: 4px;
 }
 button{
     font-size: 18px;
@@ -39,10 +45,16 @@ input[type="checkbox"]{
    width: 20px;
    border-radius: 2px;
 }
+input[type="checkbox"]:checked{
+    background: red;
+}
 button:hover{
     background-color: rgb(113, 203, 233);
     cursor: pointer;
 }
 label{
     font-size: 18px;
+}
+.reg{
+    text-align: center;
 }
