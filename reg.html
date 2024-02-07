@@ -7,9 +7,8 @@
     <title>Registration Page</title>
 </head>
 <body>
-
     <div class="container">
-        <form method="post">
+        <form id="registrationForm" method="post">
             <div class="center-text">
                 <h2>Register</h2>
             </div>
@@ -22,6 +21,7 @@
 
             <label for="password">Password:</label>
             <input type="password" id="password" name="password" required>
+
             <label for="confirm-password">Confirm Password</label>
             <input type="password" id="confirm-password" name="confirm-password" required>
 
@@ -76,9 +76,73 @@
                 <label for="thai">Thai</label><input type="checkbox" id="thai" name="cuisine" value="thai">
             </div>
 
-            <button type="submit">Register</button>
+            <button type="button" onclick="validateAndSubmit()">Register</button>
+            <p>Already have an account?<a href="login.html">Login</a></p>
         </form>
     </div>
+
+    <script>
+        function validateAndSubmit() {
+            let pass=document.getElementById("password").value;
+            let username=document.getElementById("username").value;
+            let confirmpass=document.getElementById("confirm-password").value;
+            let phno=document.getElementById("phoneNumber").value;
+            let email=document.getElementById("email").value;
+            let emailpattern=/^[^\s@]+@[^\s@]+\.[^\s@]+$/;
+            let checkboxes=document.querySelectorAll('input[name="cuisine"]:checked');
+            let ischecked=false;
+            if(pass==""||username==""||confirmpass==""||phno==""||email==""){
+                alert("All the fields must be filled");
+                return false;
+            }
+            if(!emailpattern.test(email)){
+                alert("invalid email address");
+                return false;
+            }
+            if(pass== ""){
+            alert("Password must not be empty");
+            return false;
+            }
+            if(pass.length<8){
+            alert("Password length must be 8 characters");
+            return false;
+            }
+            if(pass.search(/[0-9]/)== -1){
+            alert("Password must contain atleast one number");
+            return false;
+            }
+            if(pass.search(/[A-Z]/)== -1){
+            alert("Password must contain atleast one uppercase character");
+            return false;
+            }
+            if(/\d/.test(username))
+            {
+                alert("Username mustnot contain numbers");
+                return false;
+            }
+            if(pass !== confirmpass)
+            {
+                alert("passwords donot match");
+                return false;
+            }
+            if(phno.length != 10)
+            {
+                alert("phone number must exactly contain 10 char");
+                return false;
+            }
+            checkboxes.forEach(function(checkbox){
+                if(checkbox.checked){
+                    ischecked=true;
+                }
+            });
+            if(!ischecked){
+                alert("Please select atleast one cuisine");
+                return false;
+            }
+            // If everything is valid, redirect to done.html
+            window.location.href = "done.html";
+        }
+    </script>
 
 </body>
 </html>
