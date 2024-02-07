@@ -4,18 +4,18 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="stylesheet" href="loginstyles.css">
-    <title>login</title>
+    <title>Login</title>
 </head>
 <body>
     <div class="login">
         <h1>FOOD ORDERING LOGIN</h1>
-        <form>
+        <form id="loginForm" onsubmit="return validateForm()">
             <p> Username:</p>
-            <input type="text" required>
+            <input type="text" id="username" required>
             <p> Mail-id:</p>
-            <input type="email" required>
+            <input type="email" id="email" required>
             <p> Password:</p>
-            <input type="password" pattern=".{5,10}" title="Please enter a password with 5-10 characters" required>
+            <input type="password" id="password" required>
             <br><br>
             <input type="checkbox">
             <label for="remember">Remember-me</label><br>
@@ -23,5 +23,7 @@
             <p class="reg">Don't have an account ?<a href="reg.html">Register</a></p>
         </form>
     </div>
+
+    <script src="loginvalid.js"></script>
 </body>
 </html>
